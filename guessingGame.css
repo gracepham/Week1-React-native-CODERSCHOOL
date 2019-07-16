@@ -1,0 +1,38 @@
+/* * {
+    margin: 0; padding: 0;
+}
+.container {
+    height: 500px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-wrap: wrap;
+}
+.input {
+
+} */
+.container {
+    width: 450px;
+}
+#message {
+    display: flex;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center; 
+    height: 30px;
+}
+#number {
+    width: 70%;
+}
+#guessButton {
+    width: 27%;
+}
+.input {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#pastGuess {
+    text-transform: uppercase;
+}

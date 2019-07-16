@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Guessing Game from coderSCHOOL</title>
+    <link rel="stylesheet" href="guessingGame.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id='message'>Guessing Game in HTML</div>
+        <div class="input">
+            <input type='number' id='number' />
+            <button id='guessButton'>Guess</button>
+        </div>
+    </div>
+    <div id="pastGuess">past guessing number:</div>
+    <script>
+        let button = document.getElementById('guessButton');
+        let msg = document.getElementById('message');
+        let pastGuess = document.getElementById('pastGuess');
+        let numberGuess = Math.round(Math.random() * 50);
+        let countRemaining = 10;
+        button.addEventListener('click', function () {
+            countRemaining--;
+            if (countRemaining <= 0) {
+                numberGuess = Math.round(Math.random() * 50);
+                msg.innerHTML = "You have no chance to guess! Click Guess to play agian.";
+                msg.style.backgroundColor = "rgb(255, 179, 38)";
+                pastGuess.innerHTML = "past guessing number: ";
+                countRemaining = 10;
+            } else {
+                let idInput = document.getElementById('number');
+                let userGuess = idInput.value;
+                console.log("Number needs guessing:", numberGuess);
+                pastGuess.innerHTML += userGuess + " ";
+                if (userGuess < numberGuess) {
+                    msg.innerHTML = "Sorry your guess is lower than result." + "You have" + " " + countRemaining + " " + "guesses left";
+                    msg.style.backgroundColor = "rgb(248, 70, 70)";
+                }
+                else if (userGuess > numberGuess) {
+                    msg.innerHTML = "Sorry your guess is higher than result." + "You have" + " " + countRemaining + " " + "guesses left";
+                    msg.style.backgroundColor = "rgb(248, 70, 70)";
+                } else {
+                    msg.innerHTML = "Congratulations!! You guessed correctly.";
+                    msg.style.backgroundColor = "rgb(129, 233, 129)";
+                    numberGuess = Math.round(Math.random() * 50);
+                    pastGuess.innerHTML = "past guessing number:";
+                    countRemaining = 10;  
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
